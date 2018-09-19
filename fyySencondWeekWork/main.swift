@@ -206,9 +206,15 @@ array.sort(by : { return $0.fullName > $1.fullName })
 for item in array {
     print(item)
 }
-//根据gender
+//根据gender,age
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-array.sort(by: { return ($0.age > $1.age) && ($0.gender > $1.gender) })
+array.sort(by: { if $0.age == $1.age {
+        return $0.gender > $1.gender
+    } else {
+        return $0.gender > $1.gender
+    }
+    
+})
 for item in array {
     print(item)
 }
