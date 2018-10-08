@@ -171,6 +171,15 @@ for i in 1..<5 {
     let temp = Student(firstName: "王", lastName: "\(i)", age: 35, gender: Gender.male, stuNo: 2016110301 + i,department: Department.second )
     array.append(temp)
 }
+
+//把数组中用URL方式存入文件中
+let fileMagager = FileManager.default
+if var path = fileMagager.urls(for: .documentDirectory, in: .userDomainMask).first {
+    path.appendPathComponent("my class.txt")
+    let testArray = ["string1","string2"] as AnyObject
+    try? testArray.write(to: path)
+}
+
 //定义一个字典
 var dic = ["Person" : 0,"Teacher" : 0,"Student" : 0]
 for item in array {
